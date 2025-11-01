@@ -1,0 +1,44 @@
+.crt-background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.desk-bg {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+.crt-monitor {
+    position: absolute;
+    left: 15vw; top: 10vh;
+    width: 70vw; height: 70vh;
+    z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+}
+.crt-screen {
+    background: #000;
+    color: #39ff14;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 0 40px #39ff14, 0 0 10px #000 inset;
+    width: 90%; height: 90%;
+    overflow-y: auto;
+}
+button {
+    background: #222;
+    color: #39ff14;
+    border: 2px solid #39ff14;
+    font-family: inherit;
+    margin: 0.5em;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+button:hover {
+    background: #39ff14;
+    color: #000;
+}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 SCENES = {
 	"start": {
 		"text": "You are Sir Knight. The CRT monitor flickers. Do you approach the castle or the forest?",
