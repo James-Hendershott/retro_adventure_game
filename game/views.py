@@ -1,38 +1,16 @@
-from django.shortcuts import render, redirect
-SCENES = {
-	"start": {
-		"text": "You are Sir Knight. The CRT monitor flickers. Do you approach the castle or the forest?",
-		"choices": {
-			"Go to Castle": "castle_entrance",
-			"Enter Forest": "forest_path"
-		}
-	},
-	"castle_entrance": {
-		"text": "You stand before the castle gates. Main entrance or side door?",
-		"choices": {
-			"Main Entrance": "main_entrance",
-			"Side Door": "side_entrance"
-		}
-	},
-	"forest_path": {
-		"text": "The forest is dark and full of secrets. Do you follow the path or explore off-road?",
-		"choices": {
-			"Follow Path": "forest_path_safe",
-			"Explore Off-Road": "forest_path_danger"
-		}
-	},
-	# ...add more scenes as needed
-}
 
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
+from .scenes import SCENES
+
 
 def game_view(request):
 	"""
-	Main game view. Handles GET (show scene) and POST (handle choice, update session).
-	Uses session to track current scene.
+	Main game view for the retro adventure game.
+	Handles GET (show scene) and POST (handle choice, update session).
+	Uses Django session to track current scene.
 	"""
 	scene_key = request.session.get('scene', 'start')
-	scene = SCENES[scene_key]
+	scene = SCENES.get(scene_key, SCENES['start'])
 
 	if request.method == "POST":
 		choice = request.POST.get('choice')
