@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retro Adventure Game</title>
+    <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
+</head>
+<body>
+    <div class="crt-background">
+        <!-- Replace with your own image in static/game/images/retro_setup_final.png -->
+        <img src="{% static 'game/images/retro_setup_final.png' %}" class="desk-bg" alt="Retro Desk">
+        <div class="crt-monitor">
+            <div class="crt-screen">
+                <pre>{{ scene.text }}</pre>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for label, _ in scene.choices.items %}
+                        <button type="submit" name="choice" value="{{ label }}">{{ label }}</button>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
